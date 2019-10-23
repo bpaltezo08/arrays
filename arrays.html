@@ -1,0 +1,58 @@
+<html>
+<body>
+<script>
+
+    let orders = [];
+
+    function Run(){
+
+        let option = prompt("Welcome to myStore\n What would you like to do\n\n1) Add Order\n2) Show Orders\n3) Exit");
+        if(CheckInput(option)){
+
+            if(option == 1){
+                NewOrder();
+                Run();
+            }else if(option == 2){
+                ShowOrders();
+            }else if(option == 3){
+                return;
+            }
+
+        }else{
+            return;
+        }
+    }
+
+    function CheckInput(input){
+        if(isNaN(input) || input == "" || input < 1){
+            alert("Invalid input!");
+            return false;
+        }else{
+            return true;
+        }
+    }
+
+    function NewOrder(){
+        let order = new String(prompt("Enter your order: "));
+        orders.push(order);
+    }
+
+    function ShowOrders(){
+        let res = "Orders are: \n";
+        
+        if(orders.length > 0){
+            for(var x=0;x<orders.length;x++){
+                res += (x+1) + ") " + orders[x] + " \n";
+            }
+            alert(res);
+            return orders;
+        }else{
+            alert("There are no orders");
+            return;
+        }
+    }
+
+    
+</script>
+</body>
+</html>
